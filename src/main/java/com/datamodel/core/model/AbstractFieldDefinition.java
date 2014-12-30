@@ -1,15 +1,15 @@
 package com.datamodel.core.model;
 
-import com.datamodel.core.bean.DataTypeEnum;
+import com.datamodel.core.bean.DataType;
 
 /**
  * @author Chal Nan 
  */
-public abstract class AbstractElementField implements ElementField {
+public abstract class AbstractFieldDefinition implements FieldDefinition {
 
   private Class relatedTypeClass;
   
-  private DataTypeEnum dataType;
+  private DataType dataType;
   
   private String name;
   
@@ -29,7 +29,7 @@ public abstract class AbstractElementField implements ElementField {
 
 
   @Override
-  public DataTypeEnum getFieldType() {
+  public DataType getFieldType() {
     return dataType;
   }
 

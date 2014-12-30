@@ -3,7 +3,7 @@ package com.datamodel.core.bean;
 /**
  * @author Chal Nan 
  */
-public enum DataTypeEnum {
+public enum DataType {
   //TODO add more type here
   INT(Integer.class),
   DOUBLE(Double.class),
@@ -12,11 +12,11 @@ public enum DataTypeEnum {
   ;
   protected Class<?> correspondingJavaClazz;
 
-  DataTypeEnum(Class<?> correspondingJavaClazz) {
+  DataType(Class<?> correspondingJavaClazz) {
     this.correspondingJavaClazz = correspondingJavaClazz;
   }
 
-  DataTypeEnum() {
+  DataType() {
   }
   
   

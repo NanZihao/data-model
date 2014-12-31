@@ -1,34 +1,29 @@
 package com.datamodel.core.context;
 
-import com.datamodel.core.model.ObjectDefinition;
-
 import java.io.File;
 import java.io.FileFilter;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
- * @author Chal Nan 
+ * @author Chal Nan
  */
 public class ContextScanner {
-  public static Map<String, ObjectDefinition> scan(String[] paths) {
-    Map<String, ObjectDefinition> result = new HashMap<String, ObjectDefinition>();
+  public static List<Class> scan(String[] paths) {
     List<Class> list = new ArrayList<Class>();
     if (paths == null && paths.length == 0) {
-      return result;
+      return list;
     }
     for (String path : paths) {
       list.addAll(getClasssFromPackage(path));
     }
-    
-    return result;
+
+    return list;
   }
-  
+
   public static List<Class> getClasssFromPackage(String pack) {
     List<Class> clazzs = new ArrayList<Class>();
 
@@ -88,5 +83,5 @@ public class ContextScanner {
       }
     }
   }
-  
+
 }

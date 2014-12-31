@@ -2,6 +2,8 @@ package com.datamodel.core.model;
 
 import com.datamodel.core.bean.Visibility;
 
+import java.util.List;
+
 /**
  * @author Chal Nan
  */
@@ -11,15 +13,15 @@ public interface ObjectDefinition {
 
   String getLabel();
 
-  void setLabel(String label);
-
-  String getDescription();
-
-  void setDescription(String description);
-
-  FieldDefinition lookupFieldById(String id);
+  FieldDefinition lookupFieldDefinitionById(String id);
 
   Visibility getVisibility();
 
   void setVisibility(Visibility visibility);
+
+  List<FieldDefinition> getFieldDefinition();
+
+  String getName();
+  
+  
 }

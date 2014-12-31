@@ -4,6 +4,8 @@ import com.datamodel.core.bean.DataType;
 import com.datamodel.core.bean.Visibility;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author Chal Nan 
@@ -19,5 +21,27 @@ public interface FieldDefinition extends Serializable {
 
   String getFieldName();
 
-  Visibility getvisibility(); 
+  Visibility getVisibility();
+
+  String getId();
+
+  String getName();
+
+  boolean isRequired();
+
+  DataType getDataType();
+
+  boolean isEditable();
+
+  String getColumnName();
+
+  ObjectDefinition getObjectDefinition();
+
+  ObjectDefinition getDestObjectDef();
+
+  boolean isTransient();
+
+  Integer getMaxLength();
+
+  boolean isCustomField();
 }

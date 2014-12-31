@@ -1,5 +1,7 @@
 package com.datamodel.core.bean;
 
+import java.util.Date;
+
 /**
  * @author Chal Nan 
  */
@@ -8,7 +10,8 @@ public enum DataType {
   INT(Integer.class),
   DOUBLE(Double.class),
   BOOLEAN(Boolean.class),
-  
+  STRING(String.class),
+  DATE(Date.class),
   ;
   protected Class<?> correspondingJavaClazz;
 

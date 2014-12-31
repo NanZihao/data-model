@@ -17,6 +17,8 @@ public @interface Entity {
   Visibility visibility() default Visibility.NOT_VISIBLE;
 
   String description() default "";
-  
-  
+
+  String label() default "";
+
+  String name() default "";
 }

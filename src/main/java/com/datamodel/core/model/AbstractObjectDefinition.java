@@ -6,18 +6,20 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author Chal Nan 
+ * @author Chal Nan
  */
 public abstract class AbstractObjectDefinition implements ObjectDefinition {
   private String description;
-  
+
   private String label;
 
   private List<FieldDefinition> fieldDefinitions;
 
   private Map<String, FieldDefinition> fieldDefinitionMap;
-  
+
   private Visibility visibility;
+
+  private String name;
 
   public Visibility getVisibility() {
     return visibility;
@@ -36,7 +38,7 @@ public abstract class AbstractObjectDefinition implements ObjectDefinition {
   }
 
   @Override
-  public FieldDefinition lookupFieldById(String id) {
+  public FieldDefinition lookupFieldDefinitionById(String id) {
     return fieldDefinitionMap.get(id);
   }
 
@@ -48,11 +50,23 @@ public abstract class AbstractObjectDefinition implements ObjectDefinition {
     this.label = label;
   }
 
-  public List<FieldDefinition> getFieldDefinitions() {
+  public List<FieldDefinition> getFieldDefinition() {
     return fieldDefinitions;
   }
 
-  public void setFieldDefinitions(List<FieldDefinition> fieldDefinitions) {
+  public void setFieldDefinition(List<FieldDefinition> fieldDefinitions) {
     this.fieldDefinitions = fieldDefinitions;
+  }
+
+  public void setFieldDefinitionMap(Map<String, FieldDefinition> fieldDefinitionMap) {
+    this.fieldDefinitionMap = fieldDefinitionMap;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 }

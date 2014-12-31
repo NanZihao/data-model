@@ -2,19 +2,22 @@ package com.datamodel.bean.predefine;
 
 import com.datamodel.core.annotation.Entity;
 import com.datamodel.core.annotation.Field;
+import com.datamodel.core.bean.DataType;
+import com.datamodel.core.bean.Visibility;
+import com.datamodel.core.model.SystemConstants;
 
 import java.util.Date;
 
 /**
- * @author Chal Nan 
+ * @author Chal Nan
  */
-@Entity(description = "User")
+@Entity(description = "User", label = "User", visibility = Visibility.EDITABLE, name = "User")
 public class User {
-  @Field
+  @Field(visibility = Visibility.READONLY, id = "id", maxLength = SystemConstants.FieldConstans.FIELD_LEN_10, name = "id")
   private String id;
-  @Field
+  @Field(visibility = Visibility.EDITABLE, id = "name", maxLength = SystemConstants.FieldConstans.FIELD_LEN_10, name = "name")
   private String name;
-  @Field
+  @Field(visibility = Visibility.EDITABLE, id = "birthday", maxLength = SystemConstants.FieldConstans.FIELD_LEN_10, name = "birthday", dataType = DataType.DATE)
   private Date birthday;
 
   public String getId() {

@@ -8,7 +8,7 @@ import com.datamodel.core.bean.Visibility;
  */
 public abstract class AbstractFieldDefinition implements FieldDefinition {
 
-  private Class relatedTypeClass;
+  private String relatedTypeClass;
   
   private DataType dataType;
 
@@ -44,17 +44,11 @@ public abstract class AbstractFieldDefinition implements FieldDefinition {
 
   private Integer maxLength;
 
-  @Override
-  public DataType getFieldType() {
-    return dataType;
-  }
-
-  @Override
-  public Class<?> getRelatedTypeClass() {
+  public String getRelatedTypeClass() {
     return relatedTypeClass;
   }
 
-  public void setRelatedTypeClass(Class relatedTypeClass) {
+  public void setRelatedTypeClass(String relatedTypeClass) {
     this.relatedTypeClass = relatedTypeClass;
   }
 

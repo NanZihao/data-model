@@ -34,5 +34,5 @@ public @interface Field {
 
   DataType dataType() default DataType.STRING;
 
-  Class type();
+  String type() default "";
 }

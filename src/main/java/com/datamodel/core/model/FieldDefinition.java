@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @author Chal Nan
  */
 public interface FieldDefinition extends Serializable {
-  Class<?> getRelatedTypeClass();
+  String getRelatedTypeClass();
 
   String getPicklistId();
 

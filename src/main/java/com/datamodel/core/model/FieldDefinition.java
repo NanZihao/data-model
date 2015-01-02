@@ -4,15 +4,11 @@ import com.datamodel.core.bean.DataType;
 import com.datamodel.core.bean.Visibility;
 
 import java.io.Serializable;
-import java.util.List;
-import java.util.Map;
 
 /**
- * @author Chal Nan 
+ * @author Chal Nan
  */
 public interface FieldDefinition extends Serializable {
-  DataType getFieldType();
-
   Class<?> getRelatedTypeClass();
 
   String getPicklistId();

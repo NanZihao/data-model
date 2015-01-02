@@ -8,6 +8,7 @@ import com.datamodel.core.model.DMObjectDefinition;
 import com.datamodel.core.model.FieldDefinition;
 import com.datamodel.core.model.ObjectDefinition;
 
+import javax.persistence.Column;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,7 +27,7 @@ public class ObjectDefinitionTransformImpl implements ObjectDefinitionTransform 
   public static ObjectDefinitionTransform DEFAULT = new ObjectDefinitionTransformImpl();
 
   private static ObjectDefinition doTransform(Class<?> clazz) {
-    AbstractObjectDefinition objectDefinition = new DMObjectDefinition();
+    DMObjectDefinition objectDefinition = new DMObjectDefinition();
     if (clazz == null) {
       return objectDefinition;
     }
@@ -46,17 +47,26 @@ public class ObjectDefinitionTransformImpl implements ObjectDefinitionTransform 
     List<FieldDefinition> fieldDefinitionList = new ArrayList<FieldDefinition>();
     Map<String, FieldDefinition> fieldDefinitionMap = new HashMap<String, FieldDefinition>();
     for (Field field : fields) {
-      AbstractFieldDefinition fieldDefinition = new DMFieldDefinition();
+      DMFieldDefinition fieldDefinition = new DMFieldDefinition();
       com.datamodel.core.annotation.Field fieldAnnotation = field.getAnnotation(com.datamodel.core.annotation.Field.class);
+      Column columnAnnotation = field.getAnnotation(Column.class);
+      
       if (fieldAnnotation == null) {
+        continue;
+      }
+
+      if (columnAnnotation == null) {
         continue;
       }
       fieldDefinition.setName(fieldAnnotation.name());
       fieldDefinition.setMaxLength(fieldAnnotation.maxLength());
       fieldDefinition.setVisibility(fieldAnnotation.visibility());
       fieldDefinition.setRequired(fieldAnnotation.isRequired());
-      // add more set method
+      fieldDefinition.setRelatedTypeClass(fieldAnnotation.type());
 
+      fieldDefinition.setColumnName(columnAnnotation.name());
+      
+      // add more set method
       fieldDefinitionList.add(fieldDefinition);
       fieldDefinitionMap.put(fieldAnnotation.name(), fieldDefinition);
     }

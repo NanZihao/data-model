@@ -33,4 +33,6 @@ public @interface Field {
   boolean isEditable() default false;
 
   DataType dataType() default DataType.STRING;
+
+  Class type();
 }
